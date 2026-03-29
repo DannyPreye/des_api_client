@@ -1,0 +1,108 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+// ignore_for_file: unused_element
+import 'package:built_collection/built_collection.dart';
+import 'package:des_api_client/src/model/upcoming_birthday_item.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
+
+part 'upcoming_birthdays_response.g.dart';
+
+/// Response schema for upcoming birthdays.
+///
+/// Properties:
+/// * [data] 
+@BuiltValue()
+abstract class UpcomingBirthdaysResponse implements Built<UpcomingBirthdaysResponse, UpcomingBirthdaysResponseBuilder> {
+  @BuiltValueField(wireName: r'data')
+  BuiltList<UpcomingBirthdayItem> get data;
+
+  UpcomingBirthdaysResponse._();
+
+  factory UpcomingBirthdaysResponse([void updates(UpcomingBirthdaysResponseBuilder b)]) = _$UpcomingBirthdaysResponse;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UpcomingBirthdaysResponseBuilder b) => b;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<UpcomingBirthdaysResponse> get serializer => _$UpcomingBirthdaysResponseSerializer();
+}
+
+class _$UpcomingBirthdaysResponseSerializer implements PrimitiveSerializer<UpcomingBirthdaysResponse> {
+  @override
+  final Iterable<Type> types = const [UpcomingBirthdaysResponse, _$UpcomingBirthdaysResponse];
+
+  @override
+  final String wireName = r'UpcomingBirthdaysResponse';
+
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    UpcomingBirthdaysResponse object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'data';
+    yield serializers.serialize(
+      object.data,
+      specifiedType: const FullType(BuiltList, [FullType(UpcomingBirthdayItem)]),
+    );
+  }
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    UpcomingBirthdaysResponse object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required UpcomingBirthdaysResponseBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'data':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(UpcomingBirthdayItem)]),
+          ) as BuiltList<UpcomingBirthdayItem>;
+          result.data.replace(valueDes);
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  UpcomingBirthdaysResponse deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = UpcomingBirthdaysResponseBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
+}
+

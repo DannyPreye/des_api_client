@@ -1,0 +1,18 @@
+# des_api_client.model.BulkGenerateRequest
+
+## Load the model package
+```dart
+import 'package:des_api_client/api.dart';
+```
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**classSectionId** | **int** |  | 
+**termId** | **int** |  | 
+**includeHtml** | **bool** |  | [optional] [default to true]
+**forceRegenerate** | **bool** |  | [optional] [default to false]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
