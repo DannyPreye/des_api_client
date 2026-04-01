@@ -43,7 +43,6 @@ import 'package:des_api_client/src/model/ward_details_response.dart';
 import 'package:des_api_client/src/model/ward_list_response.dart';
 
 class StudentModuleApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -54,7 +53,7 @@ class StudentModuleApi {
   /// Create a new student application.  This endpoint is public and does not require authentication, allowing prospective students/guardians to submit applications.
   ///
   /// Parameters:
-  /// * [studentApplicationCreate] 
+  /// * [studentApplicationCreate]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -64,7 +63,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StudentApplicationResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StudentApplicationResponse>> createApplicationAdmissionApplicationsPost({ 
+  Future<Response<StudentApplicationResponse>>
+      createApplicationAdmissionApplicationsPost({
     required StudentApplicationCreate studentApplicationCreate,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -91,11 +91,11 @@ class StudentModuleApi {
 
     try {
       const _type = FullType(StudentApplicationCreate);
-      _bodyData = _serializers.serialize(studentApplicationCreate, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(studentApplicationCreate,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -118,11 +118,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StudentApplicationResponse),
-      ) as StudentApplicationResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StudentApplicationResponse),
+            ) as StudentApplicationResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -149,7 +150,7 @@ class StudentModuleApi {
   /// Create a new guardian.
   ///
   /// Parameters:
-  /// * [guardianCreate] 
+  /// * [guardianCreate]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -159,7 +160,7 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GuardianResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GuardianResponse>> createGuardianGuardiansPost({ 
+  Future<Response<GuardianResponse>> createGuardianGuardiansPost({
     required GuardianCreate guardianCreate,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -187,10 +188,9 @@ class StudentModuleApi {
     try {
       const _type = FullType(GuardianCreate);
       _bodyData = _serializers.serialize(guardianCreate, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -213,11 +213,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(GuardianResponse),
-      ) as GuardianResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(GuardianResponse),
+            ) as GuardianResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -244,7 +245,7 @@ class StudentModuleApi {
   /// Enroll a new student.
   ///
   /// Parameters:
-  /// * [studentEnrollment] 
+  /// * [studentEnrollment]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -254,7 +255,7 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StudentEnrollmentResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StudentEnrollmentResponse>> enrollStudentStudentsPost({ 
+  Future<Response<StudentEnrollmentResponse>> enrollStudentStudentsPost({
     required StudentEnrollment studentEnrollment,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -281,11 +282,11 @@ class StudentModuleApi {
 
     try {
       const _type = FullType(StudentEnrollment);
-      _bodyData = _serializers.serialize(studentEnrollment, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(studentEnrollment, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -308,11 +309,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StudentEnrollmentResponse),
-      ) as StudentEnrollmentResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StudentEnrollmentResponse),
+            ) as StudentEnrollmentResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -351,7 +353,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [AdmissionsTrendResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<AdmissionsTrendResponse>> getAdmissionsTrendStudentsAnalyticsAdmissionsTrendGet({ 
+  Future<Response<AdmissionsTrendResponse>>
+      getAdmissionsTrendStudentsAnalyticsAdmissionsTrendGet({
     required Date startDate,
     required Date endDate,
     String? groupBy = 'month',
@@ -376,9 +379,13 @@ class StudentModuleApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'start_date': encodeQueryParameter(_serializers, startDate, const FullType(Date)),
-      r'end_date': encodeQueryParameter(_serializers, endDate, const FullType(Date)),
-      if (groupBy != null) r'group_by': encodeQueryParameter(_serializers, groupBy, const FullType(String)),
+      r'start_date':
+          encodeQueryParameter(_serializers, startDate, const FullType(Date)),
+      r'end_date':
+          encodeQueryParameter(_serializers, endDate, const FullType(Date)),
+      if (groupBy != null)
+        r'group_by':
+            encodeQueryParameter(_serializers, groupBy, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -394,11 +401,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(AdmissionsTrendResponse),
-      ) as AdmissionsTrendResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(AdmissionsTrendResponse),
+            ) as AdmissionsTrendResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -435,7 +443,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [ApplicationDetailResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ApplicationDetailResponse>> getApplicationDetailAdmissionApplicationsApplicationIdGet({ 
+  Future<Response<ApplicationDetailResponse>>
+      getApplicationDetailAdmissionApplicationsApplicationIdGet({
     required String applicationId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -444,7 +453,11 @@ class StudentModuleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/admission/applications/{application_id}'.replaceAll('{' r'application_id' '}', encodeQueryParameter(_serializers, applicationId, const FullType(String)).toString());
+    final _path = r'/admission/applications/{application_id}'.replaceAll(
+        '{' r'application_id' '}',
+        encodeQueryParameter(
+                _serializers, applicationId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -469,11 +482,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(ApplicationDetailResponse),
-      ) as ApplicationDetailResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ApplicationDetailResponse),
+            ) as ApplicationDetailResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -509,7 +523,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GuardianDetailResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GuardianDetailResponse>> getCurrentGuardianDetailsGuardiansMeGet({ 
+  Future<Response<GuardianDetailResponse>>
+      getCurrentGuardianDetailsGuardiansMeGet({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -542,11 +557,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(GuardianDetailResponse),
-      ) as GuardianDetailResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(GuardianDetailResponse),
+            ) as GuardianDetailResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -582,7 +598,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StudentDetailResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StudentDetailResponse>> getCurrentStudentDetailsStudentsMeGet({ 
+  Future<Response<StudentDetailResponse>>
+      getCurrentStudentDetailsStudentsMeGet({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -615,11 +632,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StudentDetailResponse),
-      ) as StudentDetailResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StudentDetailResponse),
+            ) as StudentDetailResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -656,7 +674,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GuardianDetailResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GuardianDetailResponse>> getGuardianDetailsGuardiansGuardianIdGet({ 
+  Future<Response<GuardianDetailResponse>>
+      getGuardianDetailsGuardiansGuardianIdGet({
     required int guardianId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -665,7 +684,10 @@ class StudentModuleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/guardians/{guardian_id}'.replaceAll('{' r'guardian_id' '}', encodeQueryParameter(_serializers, guardianId, const FullType(int)).toString());
+    final _path = r'/guardians/{guardian_id}'.replaceAll(
+        '{' r'guardian_id' '}',
+        encodeQueryParameter(_serializers, guardianId, const FullType(int))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -690,11 +712,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(GuardianDetailResponse),
-      ) as GuardianDetailResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(GuardianDetailResponse),
+            ) as GuardianDetailResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -730,7 +753,7 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [WardListResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<WardListResponse>> getGuardianWardsWardsGet({ 
+  Future<Response<WardListResponse>> getGuardianWardsWardsGet({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -763,11 +786,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(WardListResponse),
-      ) as WardListResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(WardListResponse),
+            ) as WardListResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -805,7 +829,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StudentAnalyticsSummaryResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StudentAnalyticsSummaryResponse>> getStudentAnalyticsSummaryStudentsAnalyticsSummaryGet({ 
+  Future<Response<StudentAnalyticsSummaryResponse>>
+      getStudentAnalyticsSummaryStudentsAnalyticsSummaryGet({
     int? schoolYearId,
     String? status,
     CancelToken? cancelToken,
@@ -829,8 +854,10 @@ class StudentModuleApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'school_year_id': encodeQueryParameter(_serializers, schoolYearId, const FullType(int)),
-      r'status': encodeQueryParameter(_serializers, status, const FullType(String)),
+      r'school_year_id':
+          encodeQueryParameter(_serializers, schoolYearId, const FullType(int)),
+      r'status':
+          encodeQueryParameter(_serializers, status, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -846,11 +873,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StudentAnalyticsSummaryResponse),
-      ) as StudentAnalyticsSummaryResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StudentAnalyticsSummaryResponse),
+            ) as StudentAnalyticsSummaryResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -887,7 +915,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StudentDetailResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StudentDetailResponse>> getStudentDetailsStudentsStudentIdGet({ 
+  Future<Response<StudentDetailResponse>>
+      getStudentDetailsStudentsStudentIdGet({
     required int studentId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -896,7 +925,10 @@ class StudentModuleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/students/{student_id}'.replaceAll('{' r'student_id' '}', encodeQueryParameter(_serializers, studentId, const FullType(int)).toString());
+    final _path = r'/students/{student_id}'.replaceAll(
+        '{' r'student_id' '}',
+        encodeQueryParameter(_serializers, studentId, const FullType(int))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -921,11 +953,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StudentDetailResponse),
-      ) as StudentDetailResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StudentDetailResponse),
+            ) as StudentDetailResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -962,7 +995,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StudentsByClassResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StudentsByClassResponse>> getStudentsByClassStudentsAnalyticsByClassGet({ 
+  Future<Response<StudentsByClassResponse>>
+      getStudentsByClassStudentsAnalyticsByClassGet({
     int? schoolYearId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -985,7 +1019,8 @@ class StudentModuleApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'school_year_id': encodeQueryParameter(_serializers, schoolYearId, const FullType(int)),
+      r'school_year_id':
+          encodeQueryParameter(_serializers, schoolYearId, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1001,11 +1036,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StudentsByClassResponse),
-      ) as StudentsByClassResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StudentsByClassResponse),
+            ) as StudentsByClassResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1042,7 +1078,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StudentsByGenderResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StudentsByGenderResponse>> getStudentsByGenderStudentsAnalyticsByGenderGet({ 
+  Future<Response<StudentsByGenderResponse>>
+      getStudentsByGenderStudentsAnalyticsByGenderGet({
     int? schoolYearId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1065,7 +1102,8 @@ class StudentModuleApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'school_year_id': encodeQueryParameter(_serializers, schoolYearId, const FullType(int)),
+      r'school_year_id':
+          encodeQueryParameter(_serializers, schoolYearId, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1081,11 +1119,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StudentsByGenderResponse),
-      ) as StudentsByGenderResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StudentsByGenderResponse),
+            ) as StudentsByGenderResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1122,7 +1161,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StudentsByStatusResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StudentsByStatusResponse>> getStudentsByStatusStudentsAnalyticsByStatusGet({ 
+  Future<Response<StudentsByStatusResponse>>
+      getStudentsByStatusStudentsAnalyticsByStatusGet({
     int? schoolYearId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1145,7 +1185,8 @@ class StudentModuleApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'school_year_id': encodeQueryParameter(_serializers, schoolYearId, const FullType(int)),
+      r'school_year_id':
+          encodeQueryParameter(_serializers, schoolYearId, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1161,11 +1202,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StudentsByStatusResponse),
-      ) as StudentsByStatusResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StudentsByStatusResponse),
+            ) as StudentsByStatusResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1203,7 +1245,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StudentTotalResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StudentTotalResponse>> getTotalStudentsStudentsAnalyticsTotalGet({ 
+  Future<Response<StudentTotalResponse>>
+      getTotalStudentsStudentsAnalyticsTotalGet({
     String? status,
     int? schoolYearId,
     CancelToken? cancelToken,
@@ -1227,8 +1270,10 @@ class StudentModuleApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'status': encodeQueryParameter(_serializers, status, const FullType(String)),
-      r'school_year_id': encodeQueryParameter(_serializers, schoolYearId, const FullType(int)),
+      r'status':
+          encodeQueryParameter(_serializers, status, const FullType(String)),
+      r'school_year_id':
+          encodeQueryParameter(_serializers, schoolYearId, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1244,11 +1289,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StudentTotalResponse),
-      ) as StudentTotalResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StudentTotalResponse),
+            ) as StudentTotalResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1286,7 +1332,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [UpcomingBirthdaysResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<UpcomingBirthdaysResponse>> getUpcomingBirthdaysStudentsAnalyticsUpcomingBirthdaysGet({ 
+  Future<Response<UpcomingBirthdaysResponse>>
+      getUpcomingBirthdaysStudentsAnalyticsUpcomingBirthdaysGet({
     int? days = 7,
     int? schoolYearId,
     CancelToken? cancelToken,
@@ -1310,8 +1357,10 @@ class StudentModuleApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (days != null) r'days': encodeQueryParameter(_serializers, days, const FullType(int)),
-      r'school_year_id': encodeQueryParameter(_serializers, schoolYearId, const FullType(int)),
+      if (days != null)
+        r'days': encodeQueryParameter(_serializers, days, const FullType(int)),
+      r'school_year_id':
+          encodeQueryParameter(_serializers, schoolYearId, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1327,11 +1376,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(UpcomingBirthdaysResponse),
-      ) as UpcomingBirthdaysResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(UpcomingBirthdaysResponse),
+            ) as UpcomingBirthdaysResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1358,7 +1408,7 @@ class StudentModuleApi {
   /// Retrieve ward details based on guardian&#39;s relationship and permissions: - Primary guardians can view all guardian information - Non-primary guardians can only view their own information - All guardians can view student&#39;s profile, address, and academic information
   ///
   /// Parameters:
-  /// * [wardId] 
+  /// * [wardId]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1368,7 +1418,7 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [WardDetailsResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<WardDetailsResponse>> getWardDetailsWardsWardIdGet({ 
+  Future<Response<WardDetailsResponse>> getWardDetailsWardsWardIdGet({
     required int wardId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1377,7 +1427,10 @@ class StudentModuleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/wards/{ward_id}'.replaceAll('{' r'ward_id' '}', encodeQueryParameter(_serializers, wardId, const FullType(int)).toString());
+    final _path = r'/wards/{ward_id}'.replaceAll(
+        '{' r'ward_id' '}',
+        encodeQueryParameter(_serializers, wardId, const FullType(int))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -1402,11 +1455,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(WardDetailsResponse),
-      ) as WardDetailsResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(WardDetailsResponse),
+            ) as WardDetailsResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1433,7 +1487,7 @@ class StudentModuleApi {
   /// Link a guardian to a student with a specific relationship.
   ///
   /// Parameters:
-  /// * [guardianStudentsCreate] 
+  /// * [guardianStudentsCreate]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1443,7 +1497,7 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [CreateResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CreateResponse>> linkGuardianGuardiansStudentsPost({ 
+  Future<Response<CreateResponse>> linkGuardianGuardiansStudentsPost({
     required GuardianStudentsCreate guardianStudentsCreate,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1470,11 +1524,11 @@ class StudentModuleApi {
 
     try {
       const _type = FullType(GuardianStudentsCreate);
-      _bodyData = _serializers.serialize(guardianStudentsCreate, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(guardianStudentsCreate, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -1497,11 +1551,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(CreateResponse),
-      ) as CreateResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(CreateResponse),
+            ) as CreateResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1546,7 +1601,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [ApplicationListResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ApplicationListResponse>> listApplicationsAdmissionApplicationsGet({ 
+  Future<Response<ApplicationListResponse>>
+      listApplicationsAdmissionApplicationsGet({
     int? page = 1,
     int? limit = 20,
     String? status,
@@ -1577,15 +1633,32 @@ class StudentModuleApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      r'status': encodeQueryParameter(_serializers, status, const FullType(String)),
-      r'fromDate': encodeQueryParameter(_serializers, fromDate, const FullType(Date)),
-      r'toDate': encodeQueryParameter(_serializers, toDate, const FullType(Date)),
-      r'searchTerm': encodeQueryParameter(_serializers, searchTerm, const FullType(String)),
-      r'appliedClass': encodeQueryParameter(_serializers, appliedClass, const FullType(String)),
-      if (sortBy != null) r'sortBy': encodeQueryParameter(_serializers, sortBy, const FullType(String)),
-      if (sortOrder != null) r'sortOrder': encodeQueryParameter(_serializers, sortOrder, const FullType(String)),
+      if (page != null)
+        r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (status != null)
+        r'status':
+            encodeQueryParameter(_serializers, status, const FullType(String)),
+      if (fromDate != null)
+        r'fromDate':
+            encodeQueryParameter(_serializers, fromDate, const FullType(Date)),
+      if (toDate != null)
+        r'toDate':
+            encodeQueryParameter(_serializers, toDate, const FullType(Date)),
+      if (searchTerm != null)
+        r'searchTerm': encodeQueryParameter(
+            _serializers, searchTerm, const FullType(String)),
+      if (appliedClass != null)
+        r'appliedClass': encodeQueryParameter(
+            _serializers, appliedClass, const FullType(String)),
+      if (sortBy != null)
+        r'sortBy':
+            encodeQueryParameter(_serializers, sortBy, const FullType(String)),
+      if (sortOrder != null)
+        r'sortOrder': encodeQueryParameter(
+            _serializers, sortOrder, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1601,11 +1674,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(ApplicationListResponse),
-      ) as ApplicationListResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ApplicationListResponse),
+            ) as ApplicationListResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1648,7 +1722,7 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GuardianListResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GuardianListResponse>> listGuardiansGuardiansGet({ 
+  Future<Response<GuardianListResponse>> listGuardiansGuardiansGet({
     int? page = 1,
     int? limit = 20,
     String? searchTerm,
@@ -1677,13 +1751,21 @@ class StudentModuleApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      r'searchTerm': encodeQueryParameter(_serializers, searchTerm, const FullType(String)),
-      r'active': encodeQueryParameter(_serializers, active, const FullType(bool)),
-      r'student_count': encodeQueryParameter(_serializers, studentCount, const FullType(int)),
-      r'sortBy': encodeQueryParameter(_serializers, sortBy, const FullType(String)),
-      r'sortOrder': encodeQueryParameter(_serializers, sortOrder, const FullType(String)),
+      if (page != null)
+        r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      r'searchTerm': encodeQueryParameter(
+          _serializers, searchTerm, const FullType(String)),
+      r'active':
+          encodeQueryParameter(_serializers, active, const FullType(bool)),
+      r'student_count':
+          encodeQueryParameter(_serializers, studentCount, const FullType(int)),
+      r'sortBy':
+          encodeQueryParameter(_serializers, sortBy, const FullType(String)),
+      r'sortOrder':
+          encodeQueryParameter(_serializers, sortOrder, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1699,11 +1781,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(GuardianListResponse),
-      ) as GuardianListResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(GuardianListResponse),
+            ) as GuardianListResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1730,16 +1813,16 @@ class StudentModuleApi {
   /// Get paginated list of students with filtering and sorting options.
   ///
   /// Parameters:
-  /// * [page] 
-  /// * [limit] 
-  /// * [searchTerm] 
-  /// * [class_] 
-  /// * [section] 
-  /// * [status] 
-  /// * [dobRng] 
-  /// * [admDtRng] 
-  /// * [sortBy] 
-  /// * [sortOrder] 
+  /// * [page]
+  /// * [limit]
+  /// * [searchTerm]
+  /// * [class_]
+  /// * [section]
+  /// * [status]
+  /// * [dobRng]
+  /// * [admDtRng]
+  /// * [sortBy]
+  /// * [sortOrder]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1749,7 +1832,7 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StudentListResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StudentListResponse>> listStudentsStudentsGet({ 
+  Future<Response<StudentListResponse>> listStudentsStudentsGet({
     int? page = 1,
     int? limit = 20,
     String? searchTerm,
@@ -1781,16 +1864,27 @@ class StudentModuleApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      r'searchTerm': encodeQueryParameter(_serializers, searchTerm, const FullType(String)),
-      r'class_': encodeQueryParameter(_serializers, class_, const FullType(String)),
-      r'section': encodeQueryParameter(_serializers, section, const FullType(String)),
-      r'status': encodeQueryParameter(_serializers, status, const FullType(String)),
-      r'dob_rng': encodeQueryParameter(_serializers, dobRng, const FullType(String)),
-      r'adm_dt_rng': encodeQueryParameter(_serializers, admDtRng, const FullType(String)),
-      r'sortBy': encodeQueryParameter(_serializers, sortBy, const FullType(String)),
-      r'sortOrder': encodeQueryParameter(_serializers, sortOrder, const FullType(String)),
+      if (page != null)
+        r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      r'searchTerm': encodeQueryParameter(
+          _serializers, searchTerm, const FullType(String)),
+      r'class_':
+          encodeQueryParameter(_serializers, class_, const FullType(String)),
+      r'section':
+          encodeQueryParameter(_serializers, section, const FullType(String)),
+      r'status':
+          encodeQueryParameter(_serializers, status, const FullType(String)),
+      r'dob_rng':
+          encodeQueryParameter(_serializers, dobRng, const FullType(String)),
+      r'adm_dt_rng':
+          encodeQueryParameter(_serializers, admDtRng, const FullType(String)),
+      r'sortBy':
+          encodeQueryParameter(_serializers, sortBy, const FullType(String)),
+      r'sortOrder':
+          encodeQueryParameter(_serializers, sortOrder, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1806,11 +1900,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StudentListResponse),
-      ) as StudentListResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StudentListResponse),
+            ) as StudentListResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1837,7 +1932,7 @@ class StudentModuleApi {
   /// Unlink a guardian from a student.
   ///
   /// Parameters:
-  /// * [guardianStudentsDelete] 
+  /// * [guardianStudentsDelete]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1847,7 +1942,7 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [CreateResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CreateResponse>> unlinkGuardianGuardiansStudentsDelete({ 
+  Future<Response<CreateResponse>> unlinkGuardianGuardiansStudentsDelete({
     required GuardianStudentsDelete guardianStudentsDelete,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1874,11 +1969,11 @@ class StudentModuleApi {
 
     try {
       const _type = FullType(GuardianStudentsDelete);
-      _bodyData = _serializers.serialize(guardianStudentsDelete, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(guardianStudentsDelete, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -1901,11 +1996,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(CreateResponse),
-      ) as CreateResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(CreateResponse),
+            ) as CreateResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1933,7 +2029,7 @@ class StudentModuleApi {
   ///
   /// Parameters:
   /// * [applicationId] - The ID of the application to update
-  /// * [applicationStatusUpdate] 
+  /// * [applicationStatusUpdate]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1943,7 +2039,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StudentApplicationResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StudentApplicationResponse>> updateApplicationStatusAdmissionApplicationsApplicationIdStatusPatch({ 
+  Future<Response<StudentApplicationResponse>>
+      updateApplicationStatusAdmissionApplicationsApplicationIdStatusPatch({
     required String applicationId,
     required ApplicationStatusUpdate applicationStatusUpdate,
     CancelToken? cancelToken,
@@ -1953,7 +2050,11 @@ class StudentModuleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/admission/applications/{application_id}/status'.replaceAll('{' r'application_id' '}', encodeQueryParameter(_serializers, applicationId, const FullType(String)).toString());
+    final _path = r'/admission/applications/{application_id}/status'.replaceAll(
+        '{' r'application_id' '}',
+        encodeQueryParameter(
+                _serializers, applicationId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'PATCH',
       headers: <String, dynamic>{
@@ -1971,11 +2072,11 @@ class StudentModuleApi {
 
     try {
       const _type = FullType(ApplicationStatusUpdate);
-      _bodyData = _serializers.serialize(applicationStatusUpdate, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(applicationStatusUpdate, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -1998,11 +2099,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StudentApplicationResponse),
-      ) as StudentApplicationResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StudentApplicationResponse),
+            ) as StudentApplicationResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -2030,7 +2132,7 @@ class StudentModuleApi {
   ///
   /// Parameters:
   /// * [guardianId] - Guardian ID
-  /// * [guardianUpdate] 
+  /// * [guardianUpdate]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -2040,7 +2142,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GuardianUpdateResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GuardianUpdateResponse>> updateGuardianGuardiansGuardianIdPatch({ 
+  Future<Response<GuardianUpdateResponse>>
+      updateGuardianGuardiansGuardianIdPatch({
     required int guardianId,
     required GuardianUpdate guardianUpdate,
     CancelToken? cancelToken,
@@ -2050,7 +2153,10 @@ class StudentModuleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/guardians/{guardian_id}'.replaceAll('{' r'guardian_id' '}', encodeQueryParameter(_serializers, guardianId, const FullType(int)).toString());
+    final _path = r'/guardians/{guardian_id}'.replaceAll(
+        '{' r'guardian_id' '}',
+        encodeQueryParameter(_serializers, guardianId, const FullType(int))
+            .toString());
     final _options = Options(
       method: r'PATCH',
       headers: <String, dynamic>{
@@ -2069,10 +2175,9 @@ class StudentModuleApi {
     try {
       const _type = FullType(GuardianUpdate);
       _bodyData = _serializers.serialize(guardianUpdate, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -2095,11 +2200,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(GuardianUpdateResponse),
-      ) as GuardianUpdateResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(GuardianUpdateResponse),
+            ) as GuardianUpdateResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -2127,7 +2233,7 @@ class StudentModuleApi {
   ///
   /// Parameters:
   /// * [studentId] - Student ID
-  /// * [statusUpdateRequest] 
+  /// * [statusUpdateRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -2137,7 +2243,8 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StudentUpdateResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StudentUpdateResponse>> updateStudentStatusStudentsStudentIdStatusPut({ 
+  Future<Response<StudentUpdateResponse>>
+      updateStudentStatusStudentsStudentIdStatusPut({
     required int studentId,
     required StatusUpdateRequest statusUpdateRequest,
     CancelToken? cancelToken,
@@ -2147,7 +2254,10 @@ class StudentModuleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/students/{student_id}/status'.replaceAll('{' r'student_id' '}', encodeQueryParameter(_serializers, studentId, const FullType(int)).toString());
+    final _path = r'/students/{student_id}/status'.replaceAll(
+        '{' r'student_id' '}',
+        encodeQueryParameter(_serializers, studentId, const FullType(int))
+            .toString());
     final _options = Options(
       method: r'PUT',
       headers: <String, dynamic>{
@@ -2165,11 +2275,11 @@ class StudentModuleApi {
 
     try {
       const _type = FullType(StatusUpdateRequest);
-      _bodyData = _serializers.serialize(statusUpdateRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(statusUpdateRequest, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -2192,11 +2302,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StudentUpdateResponse),
-      ) as StudentUpdateResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StudentUpdateResponse),
+            ) as StudentUpdateResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -2224,7 +2335,7 @@ class StudentModuleApi {
   ///
   /// Parameters:
   /// * [studentId] - Student ID
-  /// * [studentUpdateRequest] 
+  /// * [studentUpdateRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -2234,7 +2345,7 @@ class StudentModuleApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StudentUpdateResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StudentUpdateResponse>> updateStudentStudentsStudentIdPatch({ 
+  Future<Response<StudentUpdateResponse>> updateStudentStudentsStudentIdPatch({
     required int studentId,
     required StudentUpdateRequest studentUpdateRequest,
     CancelToken? cancelToken,
@@ -2244,7 +2355,10 @@ class StudentModuleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/students/{student_id}'.replaceAll('{' r'student_id' '}', encodeQueryParameter(_serializers, studentId, const FullType(int)).toString());
+    final _path = r'/students/{student_id}'.replaceAll(
+        '{' r'student_id' '}',
+        encodeQueryParameter(_serializers, studentId, const FullType(int))
+            .toString());
     final _options = Options(
       method: r'PATCH',
       headers: <String, dynamic>{
@@ -2262,11 +2376,11 @@ class StudentModuleApi {
 
     try {
       const _type = FullType(StudentUpdateRequest);
-      _bodyData = _serializers.serialize(studentUpdateRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(studentUpdateRequest, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -2289,11 +2403,12 @@ class StudentModuleApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StudentUpdateResponse),
-      ) as StudentUpdateResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StudentUpdateResponse),
+            ) as StudentUpdateResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -2315,5 +2430,4 @@ class StudentModuleApi {
       extra: _response.extra,
     );
   }
-
 }
