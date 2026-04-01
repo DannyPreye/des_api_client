@@ -1756,16 +1756,21 @@ class StudentModuleApi {
       if (limit != null)
         r'limit':
             encodeQueryParameter(_serializers, limit, const FullType(int)),
-      r'searchTerm': encodeQueryParameter(
-          _serializers, searchTerm, const FullType(String)),
-      r'active':
-          encodeQueryParameter(_serializers, active, const FullType(bool)),
-      r'student_count':
-          encodeQueryParameter(_serializers, studentCount, const FullType(int)),
-      r'sortBy':
-          encodeQueryParameter(_serializers, sortBy, const FullType(String)),
-      r'sortOrder':
-          encodeQueryParameter(_serializers, sortOrder, const FullType(String)),
+      if (searchTerm != null)
+        r'searchTerm': encodeQueryParameter(
+            _serializers, searchTerm, const FullType(String)),
+      if (active != null)
+        r'active':
+            encodeQueryParameter(_serializers, active, const FullType(bool)),
+      if (studentCount != null)
+        r'student_count': encodeQueryParameter(
+            _serializers, studentCount, const FullType(int)),
+      if (sortBy != null)
+        r'sortBy':
+            encodeQueryParameter(_serializers, sortBy, const FullType(String)),
+      if (sortOrder != null)
+        r'sortOrder': encodeQueryParameter(
+            _serializers, sortOrder, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
