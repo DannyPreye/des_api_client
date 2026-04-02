@@ -90,14 +90,18 @@ class AttendanceApi {
       if (limit != null)
         r'limit':
             encodeQueryParameter(_serializers, limit, const FullType(int)),
-      r'search':
-          encodeQueryParameter(_serializers, search, const FullType(String)),
-      r'sortBy':
-          encodeQueryParameter(_serializers, sortBy, const FullType(String)),
-      r'sortOrder':
-          encodeQueryParameter(_serializers, sortOrder, const FullType(String)),
-      r'status':
-          encodeQueryParameter(_serializers, status, const FullType(String)),
+      if (search != null)
+        r'search':
+            encodeQueryParameter(_serializers, search, const FullType(String)),
+      if (sortBy != null)
+        r'sortBy':
+            encodeQueryParameter(_serializers, sortBy, const FullType(String)),
+      if (sortOrder != null)
+        r'sortOrder': encodeQueryParameter(
+            _serializers, sortOrder, const FullType(String)),
+      if (status != null)
+        r'status':
+            encodeQueryParameter(_serializers, status, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
