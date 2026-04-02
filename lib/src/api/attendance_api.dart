@@ -18,7 +18,6 @@ import 'package:des_api_client/src/model/http_validation_error.dart';
 import 'package:des_api_client/src/model/student_attendance_summary.dart';
 
 class AttendanceApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -29,7 +28,7 @@ class AttendanceApi {
   /// Get attendance summary for a class section within a date range
   ///
   /// Parameters:
-  /// * [classSectionId] 
+  /// * [classSectionId]
   /// * [startdate] - Start date
   /// * [enddate] - End date
   /// * [page] - Page number
@@ -47,7 +46,8 @@ class AttendanceApi {
   ///
   /// Returns a [Future] containing a [Response] with a [ClassAttendanceList] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ClassAttendanceList>> getAttendanceSummaryByRangeAttendanceClassClassSectionIdSummaryGet({ 
+  Future<Response<ClassAttendanceList>>
+      getAttendanceSummaryByRangeAttendanceClassClassSectionIdSummaryGet({
     required int classSectionId,
     required Date startdate,
     required Date enddate,
@@ -64,7 +64,10 @@ class AttendanceApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/attendance/class/{class_section_id}/summary'.replaceAll('{' r'class_section_id' '}', encodeQueryParameter(_serializers, classSectionId, const FullType(int)).toString());
+    final _path = r'/attendance/class/{class_section_id}/summary'.replaceAll(
+        '{' r'class_section_id' '}',
+        encodeQueryParameter(_serializers, classSectionId, const FullType(int))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -78,14 +81,23 @@ class AttendanceApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'startdate': encodeQueryParameter(_serializers, startdate, const FullType(Date)),
-      r'enddate': encodeQueryParameter(_serializers, enddate, const FullType(Date)),
-      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      r'search': encodeQueryParameter(_serializers, search, const FullType(String)),
-      r'sortBy': encodeQueryParameter(_serializers, sortBy, const FullType(String)),
-      r'sortOrder': encodeQueryParameter(_serializers, sortOrder, const FullType(String)),
-      r'status': encodeQueryParameter(_serializers, status, const FullType(String)),
+      r'startdate':
+          encodeQueryParameter(_serializers, startdate, const FullType(Date)),
+      r'enddate':
+          encodeQueryParameter(_serializers, enddate, const FullType(Date)),
+      if (page != null)
+        r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      r'search':
+          encodeQueryParameter(_serializers, search, const FullType(String)),
+      r'sortBy':
+          encodeQueryParameter(_serializers, sortBy, const FullType(String)),
+      r'sortOrder':
+          encodeQueryParameter(_serializers, sortOrder, const FullType(String)),
+      r'status':
+          encodeQueryParameter(_serializers, status, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -101,11 +113,12 @@ class AttendanceApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(ClassAttendanceList),
-      ) as ClassAttendanceList;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ClassAttendanceList),
+            ) as ClassAttendanceList;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -132,7 +145,7 @@ class AttendanceApi {
   /// Get attendance records for a class section on a specific date
   ///
   /// Parameters:
-  /// * [classSectionId] 
+  /// * [classSectionId]
   /// * [date] - Date of attendance
   /// * [searchTerm] - Search by admission_no or name
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -144,7 +157,8 @@ class AttendanceApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltMap<String, JsonObject>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltMap<String, JsonObject>>> getDailyAttendanceAttendanceClassClassSectionIdGet({ 
+  Future<Response<BuiltMap<String, JsonObject>>>
+      getDailyAttendanceAttendanceClassClassSectionIdGet({
     required int classSectionId,
     required Date date,
     String? searchTerm,
@@ -155,7 +169,10 @@ class AttendanceApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/attendance/class/{class_section_id}'.replaceAll('{' r'class_section_id' '}', encodeQueryParameter(_serializers, classSectionId, const FullType(int)).toString());
+    final _path = r'/attendance/class/{class_section_id}'.replaceAll(
+        '{' r'class_section_id' '}',
+        encodeQueryParameter(_serializers, classSectionId, const FullType(int))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -170,7 +187,8 @@ class AttendanceApi {
 
     final _queryParameters = <String, dynamic>{
       r'_date': encodeQueryParameter(_serializers, date, const FullType(Date)),
-      r'search_term': encodeQueryParameter(_serializers, searchTerm, const FullType(String)),
+      r'search_term': encodeQueryParameter(
+          _serializers, searchTerm, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -186,11 +204,13 @@ class AttendanceApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-      ) as BuiltMap<String, JsonObject>;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(
+                  BuiltMap, [FullType(String), FullType(JsonObject)]),
+            ) as BuiltMap<String, JsonObject>;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -217,7 +237,7 @@ class AttendanceApi {
   /// Get attendance summary for a student within a date range
   ///
   /// Parameters:
-  /// * [enrollmentId] 
+  /// * [enrollmentId]
   /// * [startdate] - Start date
   /// * [enddate] - End date
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -229,7 +249,8 @@ class AttendanceApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StudentAttendanceSummary] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StudentAttendanceSummary>> getStudentAttendanceSummaryAttendanceClassStudentEnrollmentIdGet({ 
+  Future<Response<StudentAttendanceSummary>>
+      getStudentAttendanceSummaryAttendanceClassStudentEnrollmentIdGet({
     required int enrollmentId,
     required Date startdate,
     required Date enddate,
@@ -240,7 +261,10 @@ class AttendanceApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/attendance/class/student/{enrollment_id}'.replaceAll('{' r'enrollment_id' '}', encodeQueryParameter(_serializers, enrollmentId, const FullType(int)).toString());
+    final _path = r'/attendance/class/student/{enrollment_id}'.replaceAll(
+        '{' r'enrollment_id' '}',
+        encodeQueryParameter(_serializers, enrollmentId, const FullType(int))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -254,8 +278,10 @@ class AttendanceApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'startdate': encodeQueryParameter(_serializers, startdate, const FullType(Date)),
-      r'enddate': encodeQueryParameter(_serializers, enddate, const FullType(Date)),
+      r'startdate':
+          encodeQueryParameter(_serializers, startdate, const FullType(Date)),
+      r'enddate':
+          encodeQueryParameter(_serializers, enddate, const FullType(Date)),
     };
 
     final _response = await _dio.request<Object>(
@@ -271,11 +297,12 @@ class AttendanceApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StudentAttendanceSummary),
-      ) as StudentAttendanceSummary;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StudentAttendanceSummary),
+            ) as StudentAttendanceSummary;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -302,7 +329,7 @@ class AttendanceApi {
   /// Get attendance summary for a class section for a term
   ///
   /// Parameters:
-  /// * [classSectionId] 
+  /// * [classSectionId]
   /// * [termId] - Term ID (defaults to current term)
   /// * [currDate] - Current date
   /// * [page] - Page number
@@ -320,7 +347,8 @@ class AttendanceApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltMap<String, JsonObject>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltMap<String, JsonObject>>> getTermAttendanceSummaryAttendanceClassClassSectionIdTermSummaryGet({ 
+  Future<Response<BuiltMap<String, JsonObject>>>
+      getTermAttendanceSummaryAttendanceClassClassSectionIdTermSummaryGet({
     required int classSectionId,
     int? termId,
     Date? currDate,
@@ -337,7 +365,12 @@ class AttendanceApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/attendance/class/{class_section_id}/term_summary'.replaceAll('{' r'class_section_id' '}', encodeQueryParameter(_serializers, classSectionId, const FullType(int)).toString());
+    final _path = r'/attendance/class/{class_section_id}/term_summary'
+        .replaceAll(
+            '{' r'class_section_id' '}',
+            encodeQueryParameter(
+                    _serializers, classSectionId, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -351,14 +384,27 @@ class AttendanceApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'term_id': encodeQueryParameter(_serializers, termId, const FullType(int)),
-      if (currDate != null) r'curr_date': encodeQueryParameter(_serializers, currDate, const FullType(Date)),
-      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      r'std_ids': encodeQueryParameter(_serializers, stdIds, const FullType(String)),
-      r'search': encodeQueryParameter(_serializers, search, const FullType(String)),
-      r'sortBy': encodeQueryParameter(_serializers, sortBy, const FullType(String)),
-      r'sortOrder': encodeQueryParameter(_serializers, sortOrder, const FullType(String)),
+      r'term_id':
+          encodeQueryParameter(_serializers, termId, const FullType(int)),
+      if (currDate != null)
+        r'curr_date':
+            encodeQueryParameter(_serializers, currDate, const FullType(Date)),
+      if (page != null)
+        r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      r'std_ids':
+          encodeQueryParameter(_serializers, stdIds, const FullType(String)),
+      if (search != null)
+        r'search':
+            encodeQueryParameter(_serializers, search, const FullType(String)),
+      if (sortBy != null)
+        r'sortBy':
+            encodeQueryParameter(_serializers, sortBy, const FullType(String)),
+      if (sortOrder != null)
+        r'sortOrder': encodeQueryParameter(
+            _serializers, sortOrder, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -374,11 +420,13 @@ class AttendanceApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-      ) as BuiltMap<String, JsonObject>;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(
+                  BuiltMap, [FullType(String), FullType(JsonObject)]),
+            ) as BuiltMap<String, JsonObject>;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -405,7 +453,7 @@ class AttendanceApi {
   /// Mark attendance for multiple students at once
   ///
   /// Parameters:
-  /// * [attendanceCreate] 
+  /// * [attendanceCreate]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -415,7 +463,8 @@ class AttendanceApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<ClassAttendanceInDB>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<ClassAttendanceInDB>>> markClassAttendanceAttendanceClassPost({ 
+  Future<Response<BuiltList<ClassAttendanceInDB>>>
+      markClassAttendanceAttendanceClassPost({
     required BuiltList<AttendanceCreate> attendanceCreate,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -442,11 +491,11 @@ class AttendanceApi {
 
     try {
       const _type = FullType(BuiltList, [FullType(AttendanceCreate)]);
-      _bodyData = _serializers.serialize(attendanceCreate, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(attendanceCreate, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -469,11 +518,13 @@ class AttendanceApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(ClassAttendanceInDB)]),
-      ) as BuiltList<ClassAttendanceInDB>;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(ClassAttendanceInDB)]),
+            ) as BuiltList<ClassAttendanceInDB>;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -495,5 +546,4 @@ class AttendanceApi {
       extra: _response.extra,
     );
   }
-
 }
