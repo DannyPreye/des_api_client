@@ -24,7 +24,6 @@ import 'package:des_api_client/src/model/student_subject_assessment_score.dart';
 import 'package:des_api_client/src/model/subject_scores_by_assessment_response.dart';
 
 class AssessmentsApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -35,7 +34,7 @@ class AssessmentsApi {
   /// Create or update assessment configurations for a class subject and term. If configs already exist, they will be replaced.
   ///
   /// Parameters:
-  /// * [assessmentConfigRequest] 
+  /// * [assessmentConfigRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -45,7 +44,8 @@ class AssessmentsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<AssessmentConfigDTO>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<AssessmentConfigDTO>>> createAssessmentConfigAssessmentsConfigsPost({ 
+  Future<Response<BuiltList<AssessmentConfigDTO>>>
+      createAssessmentConfigAssessmentsConfigsPost({
     required AssessmentConfigRequest assessmentConfigRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -72,11 +72,11 @@ class AssessmentsApi {
 
     try {
       const _type = FullType(AssessmentConfigRequest);
-      _bodyData = _serializers.serialize(assessmentConfigRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(assessmentConfigRequest, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -99,11 +99,13 @@ class AssessmentsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(AssessmentConfigDTO)]),
-      ) as BuiltList<AssessmentConfigDTO>;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(AssessmentConfigDTO)]),
+            ) as BuiltList<AssessmentConfigDTO>;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -130,7 +132,7 @@ class AssessmentsApi {
   /// Create a new assessment score
   ///
   /// Parameters:
-  /// * [assessmentScoreCreate] 
+  /// * [assessmentScoreCreate]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -140,7 +142,7 @@ class AssessmentsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [CreateResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CreateResponse>> createAssessmentScoreAssessmentsScoresPost({ 
+  Future<Response<CreateResponse>> createAssessmentScoreAssessmentsScoresPost({
     required AssessmentScoreCreate assessmentScoreCreate,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -167,11 +169,11 @@ class AssessmentsApi {
 
     try {
       const _type = FullType(AssessmentScoreCreate);
-      _bodyData = _serializers.serialize(assessmentScoreCreate, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(assessmentScoreCreate, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -194,11 +196,12 @@ class AssessmentsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(CreateResponse),
-      ) as CreateResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(CreateResponse),
+            ) as CreateResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -225,7 +228,7 @@ class AssessmentsApi {
   /// Create a new assessment type
   ///
   /// Parameters:
-  /// * [assessmentTypeCreate] 
+  /// * [assessmentTypeCreate]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -235,7 +238,7 @@ class AssessmentsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [AssessmentTypeDTO] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<AssessmentTypeDTO>> createAssessmentTypeAssessmentsTypesPost({ 
+  Future<Response<AssessmentTypeDTO>> createAssessmentTypeAssessmentsTypesPost({
     required AssessmentTypeCreate assessmentTypeCreate,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -262,11 +265,11 @@ class AssessmentsApi {
 
     try {
       const _type = FullType(AssessmentTypeCreate);
-      _bodyData = _serializers.serialize(assessmentTypeCreate, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(assessmentTypeCreate, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -289,11 +292,12 @@ class AssessmentsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(AssessmentTypeDTO),
-      ) as AssessmentTypeDTO;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(AssessmentTypeDTO),
+            ) as AssessmentTypeDTO;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -320,7 +324,7 @@ class AssessmentsApi {
   /// Create multiple assessment scores at once
   ///
   /// Parameters:
-  /// * [assessmentScoreBulkCreate] 
+  /// * [assessmentScoreBulkCreate]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -330,7 +334,8 @@ class AssessmentsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<AssessmentScoreDTO>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<AssessmentScoreDTO>>> createBulkAssessmentScoresAssessmentsScoresBulkPost({ 
+  Future<Response<BuiltList<AssessmentScoreDTO>>>
+      createBulkAssessmentScoresAssessmentsScoresBulkPost({
     required AssessmentScoreBulkCreate assessmentScoreBulkCreate,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -357,11 +362,11 @@ class AssessmentsApi {
 
     try {
       const _type = FullType(AssessmentScoreBulkCreate);
-      _bodyData = _serializers.serialize(assessmentScoreBulkCreate, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(assessmentScoreBulkCreate,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -384,11 +389,13 @@ class AssessmentsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(AssessmentScoreDTO)]),
-      ) as BuiltList<AssessmentScoreDTO>;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(AssessmentScoreDTO)]),
+            ) as BuiltList<AssessmentScoreDTO>;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -415,18 +422,18 @@ class AssessmentsApi {
   /// Get assessment scores for all students in a class section across all subjects
   ///
   /// Parameters:
-  /// * [classSectionId] 
-  /// * [termId] 
-  /// * [page] 
-  /// * [limit] 
-  /// * [searchTerm] 
-  /// * [sort] 
-  /// * [sortBy] 
-  /// * [sortOrder] 
-  /// * [classSubjects] 
-  /// * [percentageRange] 
-  /// * [studentIds] 
-  /// * [requestBody] 
+  /// * [classSectionId]
+  /// * [termId]
+  /// * [page]
+  /// * [limit]
+  /// * [searchTerm]
+  /// * [sort]
+  /// * [sortBy]
+  /// * [sortOrder]
+  /// * [classSubjects]
+  /// * [percentageRange]
+  /// * [studentIds]
+  /// * [requestBody]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -436,7 +443,8 @@ class AssessmentsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [ClassAssessmentsScoresResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ClassAssessmentsScoresResponse>> getClassAssessmentScoresAssessmentsSectionScoresGet({ 
+  Future<Response<ClassAssessmentsScoresResponse>>
+      getClassAssessmentScoresAssessmentsSectionScoresGet({
     required int classSectionId,
     required int termId,
     int? page = 1,
@@ -471,28 +479,51 @@ class AssessmentsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      r'searchTerm': encodeQueryParameter(_serializers, searchTerm, const FullType(String)),
-      r'sort': encodeQueryParameter(_serializers, sort, const FullType(String)),
-      r'sortBy': encodeQueryParameter(_serializers, sortBy, const FullType(String)),
-      r'sortOrder': encodeQueryParameter(_serializers, sortOrder, const FullType(String)),
-      r'class_section_id': encodeQueryParameter(_serializers, classSectionId, const FullType(int)),
-      r'term_id': encodeQueryParameter(_serializers, termId, const FullType(int)),
-      r'class_subjects': encodeQueryParameter(_serializers, classSubjects, const FullType(String)),
-      r'percentage_range': encodeQueryParameter(_serializers, percentageRange, const FullType(String)),
-      r'student_ids': encodeQueryParameter(_serializers, studentIds, const FullType(String)),
+      if (page != null)
+        r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (searchTerm != null)
+        r'searchTerm': encodeQueryParameter(
+            _serializers, searchTerm, const FullType(String)),
+      if (sort != null)
+        r'sort':
+            encodeQueryParameter(_serializers, sort, const FullType(String)),
+      if (sortBy != null)
+        r'sortBy':
+            encodeQueryParameter(_serializers, sortBy, const FullType(String)),
+      if (sortOrder != null)
+        r'sortOrder': encodeQueryParameter(
+            _serializers, sortOrder, const FullType(String)),
+      if (classSectionId != null)
+        r'class_section_id': encodeQueryParameter(
+            _serializers, classSectionId, const FullType(int)),
+      if (termId != null)
+        r'term_id':
+            encodeQueryParameter(_serializers, termId, const FullType(int)),
+      if (classSubjects != null)
+        r'class_subjects': encodeQueryParameter(
+            _serializers, classSubjects, const FullType(String)),
+      if (percentageRange != null)
+        r'percentage_range': encodeQueryParameter(
+            _serializers, percentageRange, const FullType(String)),
+      if (studentIds != null)
+        r'student_ids': encodeQueryParameter(
+            _serializers, studentIds, const FullType(String)),
     };
 
     dynamic _bodyData;
 
     try {
-      const _type = FullType(BuiltMap, [FullType(String), FullType(JsonObject)]);
-      _bodyData = requestBody == null ? null : _serializers.serialize(requestBody, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      const _type =
+          FullType(BuiltMap, [FullType(String), FullType(JsonObject)]);
+      _bodyData = requestBody == null
+          ? null
+          : _serializers.serialize(requestBody, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
           queryParameters: _queryParameters,
@@ -517,11 +548,12 @@ class AssessmentsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(ClassAssessmentsScoresResponse),
-      ) as ClassAssessmentsScoresResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ClassAssessmentsScoresResponse),
+            ) as ClassAssessmentsScoresResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -559,7 +591,8 @@ class AssessmentsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<StudentSubjectAssessmentScore>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<StudentSubjectAssessmentScore>>> getStudentAssessmentReportAssessmentsStudentsScoresGet({ 
+  Future<Response<BuiltList<StudentSubjectAssessmentScore>>>
+      getStudentAssessmentReportAssessmentsStudentsScoresGet({
     required int classEnrollmentId,
     int? termId,
     CancelToken? cancelToken,
@@ -583,8 +616,10 @@ class AssessmentsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'class_enrollment_id': encodeQueryParameter(_serializers, classEnrollmentId, const FullType(int)),
-      r'term_id': encodeQueryParameter(_serializers, termId, const FullType(int)),
+      r'class_enrollment_id': encodeQueryParameter(
+          _serializers, classEnrollmentId, const FullType(int)),
+      r'term_id':
+          encodeQueryParameter(_serializers, termId, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -600,11 +635,13 @@ class AssessmentsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(StudentSubjectAssessmentScore)]),
-      ) as BuiltList<StudentSubjectAssessmentScore>;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(
+                  BuiltList, [FullType(StudentSubjectAssessmentScore)]),
+            ) as BuiltList<StudentSubjectAssessmentScore>;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -631,7 +668,7 @@ class AssessmentsApi {
   /// Get all assessment scores for a student
   ///
   /// Parameters:
-  /// * [studentId] 
+  /// * [studentId]
   /// * [classEnrollmentId] - Filter by enrollment
   /// * [termId] - Filter by term
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -643,7 +680,8 @@ class AssessmentsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<AssessmentScoreDTO>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<AssessmentScoreDTO>>> getStudentScoresAssessmentsScoresStudentsStudentIdGet({ 
+  Future<Response<BuiltList<AssessmentScoreDTO>>>
+      getStudentScoresAssessmentsScoresStudentsStudentIdGet({
     required int studentId,
     int? classEnrollmentId,
     int? termId,
@@ -654,7 +692,10 @@ class AssessmentsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/assessments/scores/students/{student_id}'.replaceAll('{' r'student_id' '}', encodeQueryParameter(_serializers, studentId, const FullType(int)).toString());
+    final _path = r'/assessments/scores/students/{student_id}'.replaceAll(
+        '{' r'student_id' '}',
+        encodeQueryParameter(_serializers, studentId, const FullType(int))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -668,8 +709,10 @@ class AssessmentsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'class_enrollment_id': encodeQueryParameter(_serializers, classEnrollmentId, const FullType(int)),
-      r'term_id': encodeQueryParameter(_serializers, termId, const FullType(int)),
+      r'class_enrollment_id': encodeQueryParameter(
+          _serializers, classEnrollmentId, const FullType(int)),
+      r'term_id':
+          encodeQueryParameter(_serializers, termId, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -685,11 +728,13 @@ class AssessmentsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(AssessmentScoreDTO)]),
-      ) as BuiltList<AssessmentScoreDTO>;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(AssessmentScoreDTO)]),
+            ) as BuiltList<AssessmentScoreDTO>;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -716,19 +761,19 @@ class AssessmentsApi {
   /// Get comprehensive assessment scores for a class subject with all students
   ///
   /// Parameters:
-  /// * [classSubjectId] 
-  /// * [termId] 
-  /// * [page] 
-  /// * [limit] 
-  /// * [searchTerm] 
-  /// * [sort] 
-  /// * [sortBy] 
-  /// * [sortOrder] 
-  /// * [classSection] 
-  /// * [totalScoreRange] 
-  /// * [percentageRange] 
-  /// * [studentIds] 
-  /// * [requestBody] 
+  /// * [classSubjectId]
+  /// * [termId]
+  /// * [page]
+  /// * [limit]
+  /// * [searchTerm]
+  /// * [sort]
+  /// * [sortBy]
+  /// * [sortOrder]
+  /// * [classSection]
+  /// * [totalScoreRange]
+  /// * [percentageRange]
+  /// * [studentIds]
+  /// * [requestBody]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -738,7 +783,8 @@ class AssessmentsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [SubjectScoresByAssessmentResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<SubjectScoresByAssessmentResponse>> getSubjectAssessmentScoresAssessmentsSubjectsScoresGet({ 
+  Future<Response<SubjectScoresByAssessmentResponse>>
+      getSubjectAssessmentScoresAssessmentsSubjectsScoresGet({
     required int classSubjectId,
     required int termId,
     int? page = 1,
@@ -774,29 +820,54 @@ class AssessmentsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      r'searchTerm': encodeQueryParameter(_serializers, searchTerm, const FullType(String)),
-      r'sort': encodeQueryParameter(_serializers, sort, const FullType(String)),
-      r'sortBy': encodeQueryParameter(_serializers, sortBy, const FullType(String)),
-      r'sortOrder': encodeQueryParameter(_serializers, sortOrder, const FullType(String)),
-      r'class_subject_id': encodeQueryParameter(_serializers, classSubjectId, const FullType(int)),
-      r'term_id': encodeQueryParameter(_serializers, termId, const FullType(int)),
-      r'class_section': encodeQueryParameter(_serializers, classSection, const FullType(int)),
-      r'total_score_range': encodeQueryParameter(_serializers, totalScoreRange, const FullType(String)),
-      r'percentage_range': encodeQueryParameter(_serializers, percentageRange, const FullType(String)),
-      r'student_ids': encodeQueryParameter(_serializers, studentIds, const FullType(String)),
+      if (page != null)
+        r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (searchTerm != null)
+        r'searchTerm': encodeQueryParameter(
+            _serializers, searchTerm, const FullType(String)),
+      if (sort != null)
+        r'sort':
+            encodeQueryParameter(_serializers, sort, const FullType(String)),
+      if (sortBy != null)
+        r'sortBy':
+            encodeQueryParameter(_serializers, sortBy, const FullType(String)),
+      if (sortOrder != null)
+        r'sortOrder': encodeQueryParameter(
+            _serializers, sortOrder, const FullType(String)),
+      if (classSubjectId != null)
+        r'class_subject_id': encodeQueryParameter(
+            _serializers, classSubjectId, const FullType(int)),
+      if (termId != null)
+        r'term_id':
+            encodeQueryParameter(_serializers, termId, const FullType(int)),
+      if (classSection != null)
+        r'class_section': encodeQueryParameter(
+            _serializers, classSection, const FullType(int)),
+      if (totalScoreRange != null)
+        r'total_score_range': encodeQueryParameter(
+            _serializers, totalScoreRange, const FullType(String)),
+      if (percentageRange != null)
+        r'percentage_range': encodeQueryParameter(
+            _serializers, percentageRange, const FullType(String)),
+      if (studentIds != null)
+        r'student_ids': encodeQueryParameter(
+            _serializers, studentIds, const FullType(String)),
     };
 
     dynamic _bodyData;
 
     try {
-      const _type = FullType(BuiltMap, [FullType(String), FullType(JsonObject)]);
-      _bodyData = requestBody == null ? null : _serializers.serialize(requestBody, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      const _type =
+          FullType(BuiltMap, [FullType(String), FullType(JsonObject)]);
+      _bodyData = requestBody == null
+          ? null
+          : _serializers.serialize(requestBody, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
           queryParameters: _queryParameters,
@@ -821,11 +892,12 @@ class AssessmentsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(SubjectScoresByAssessmentResponse),
-      ) as SubjectScoresByAssessmentResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(SubjectScoresByAssessmentResponse),
+            ) as SubjectScoresByAssessmentResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -852,7 +924,7 @@ class AssessmentsApi {
   /// Get all assessment scores for a class subject
   ///
   /// Parameters:
-  /// * [classSubjectId] 
+  /// * [classSubjectId]
   /// * [termId] - Filter by term
   /// * [classSectionId] - Filter by section
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -864,7 +936,8 @@ class AssessmentsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [JsonObject] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<JsonObject>> getSubjectScoresAssessmentsScoresSubjectsClassSubjectIdGet({ 
+  Future<Response<JsonObject>>
+      getSubjectScoresAssessmentsScoresSubjectsClassSubjectIdGet({
     required int classSubjectId,
     int? termId,
     int? classSectionId,
@@ -875,7 +948,10 @@ class AssessmentsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/assessments/scores/subjects/{class_subject_id}'.replaceAll('{' r'class_subject_id' '}', encodeQueryParameter(_serializers, classSubjectId, const FullType(int)).toString());
+    final _path = r'/assessments/scores/subjects/{class_subject_id}'.replaceAll(
+        '{' r'class_subject_id' '}',
+        encodeQueryParameter(_serializers, classSubjectId, const FullType(int))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -889,8 +965,10 @@ class AssessmentsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'term_id': encodeQueryParameter(_serializers, termId, const FullType(int)),
-      r'class_section_id': encodeQueryParameter(_serializers, classSectionId, const FullType(int)),
+      r'term_id':
+          encodeQueryParameter(_serializers, termId, const FullType(int)),
+      r'class_section_id': encodeQueryParameter(
+          _serializers, classSectionId, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -906,11 +984,12 @@ class AssessmentsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(JsonObject),
-      ) as JsonObject;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(JsonObject),
+            ) as JsonObject;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -948,7 +1027,8 @@ class AssessmentsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<AssessmentConfigDTO>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<AssessmentConfigDTO>>> listAssessmentConfigsAssessmentsConfigsGet({ 
+  Future<Response<BuiltList<AssessmentConfigDTO>>>
+      listAssessmentConfigsAssessmentsConfigsGet({
     int? termId,
     int? classSubjectId,
     CancelToken? cancelToken,
@@ -972,8 +1052,12 @@ class AssessmentsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (termId != null) r'term_id': encodeQueryParameter(_serializers, termId, const FullType(int)),
-      if (classSubjectId != null) r'class_subject_id': encodeQueryParameter(_serializers, classSubjectId, const FullType(int)),
+      if (termId != null)
+        r'term_id':
+            encodeQueryParameter(_serializers, termId, const FullType(int)),
+      if (classSubjectId != null)
+        r'class_subject_id': encodeQueryParameter(
+            _serializers, classSubjectId, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -989,11 +1073,13 @@ class AssessmentsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(AssessmentConfigDTO)]),
-      ) as BuiltList<AssessmentConfigDTO>;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(AssessmentConfigDTO)]),
+            ) as BuiltList<AssessmentConfigDTO>;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1030,7 +1116,8 @@ class AssessmentsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<AssessmentTypeDTO>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<AssessmentTypeDTO>>> listAssessmentTypesAssessmentsTypesGet({ 
+  Future<Response<BuiltList<AssessmentTypeDTO>>>
+      listAssessmentTypesAssessmentsTypesGet({
     bool? activeOnly = false,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1053,7 +1140,9 @@ class AssessmentsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (activeOnly != null) r'active_only': encodeQueryParameter(_serializers, activeOnly, const FullType(bool)),
+      if (activeOnly != null)
+        r'active_only': encodeQueryParameter(
+            _serializers, activeOnly, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1069,11 +1158,13 @@ class AssessmentsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(AssessmentTypeDTO)]),
-      ) as BuiltList<AssessmentTypeDTO>;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(AssessmentTypeDTO)]),
+            ) as BuiltList<AssessmentTypeDTO>;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1111,7 +1202,8 @@ class AssessmentsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<AssessmentScoreDTO>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<AssessmentScoreDTO>>> listAssessmentsAssessmentsAssessmentsGet({ 
+  Future<Response<BuiltList<AssessmentScoreDTO>>>
+      listAssessmentsAssessmentsAssessmentsGet({
     int? studentId,
     int? classSubjectId,
     CancelToken? cancelToken,
@@ -1135,8 +1227,10 @@ class AssessmentsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'student_id': encodeQueryParameter(_serializers, studentId, const FullType(int)),
-      r'class_subject_id': encodeQueryParameter(_serializers, classSubjectId, const FullType(int)),
+      r'student_id':
+          encodeQueryParameter(_serializers, studentId, const FullType(int)),
+      r'class_subject_id': encodeQueryParameter(
+          _serializers, classSubjectId, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1152,11 +1246,13 @@ class AssessmentsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(AssessmentScoreDTO)]),
-      ) as BuiltList<AssessmentScoreDTO>;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(AssessmentScoreDTO)]),
+            ) as BuiltList<AssessmentScoreDTO>;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1183,7 +1279,7 @@ class AssessmentsApi {
   /// Update assessment configuration status for a class subject and term
   ///
   /// Parameters:
-  /// * [configId] 
+  /// * [configId]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1193,7 +1289,8 @@ class AssessmentsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [AssessmentConfigDTO] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<AssessmentConfigDTO>> updateAssessmentConfigStatusAssessmentsConfigsConfigIdPublishPost({ 
+  Future<Response<AssessmentConfigDTO>>
+      updateAssessmentConfigStatusAssessmentsConfigsConfigIdPublishPost({
     required int configId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1202,7 +1299,10 @@ class AssessmentsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/assessments/configs/{config_id}/publish'.replaceAll('{' r'config_id' '}', encodeQueryParameter(_serializers, configId, const FullType(int)).toString());
+    final _path = r'/assessments/configs/{config_id}/publish'.replaceAll(
+        '{' r'config_id' '}',
+        encodeQueryParameter(_serializers, configId, const FullType(int))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -1227,11 +1327,12 @@ class AssessmentsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(AssessmentConfigDTO),
-      ) as AssessmentConfigDTO;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(AssessmentConfigDTO),
+            ) as AssessmentConfigDTO;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1253,5 +1354,4 @@ class AssessmentsApi {
       extra: _response.extra,
     );
   }
-
 }
