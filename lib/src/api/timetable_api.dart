@@ -331,7 +331,7 @@ class TimetableApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'day_of_week': encodeQueryParameter(_serializers, dayOfWeek, const FullType(int)),
+      if (dayOfWeek != null) r'day_of_week': encodeQueryParameter(_serializers, dayOfWeek, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -413,7 +413,7 @@ class TimetableApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'day_of_week': encodeQueryParameter(_serializers, dayOfWeek, const FullType(int)),
+      if (dayOfWeek != null) r'day_of_week': encodeQueryParameter(_serializers, dayOfWeek, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -495,7 +495,7 @@ class TimetableApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'day_of_week': encodeQueryParameter(_serializers, dayOfWeek, const FullType(int)),
+      if (dayOfWeek != null) r'day_of_week': encodeQueryParameter(_serializers, dayOfWeek, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
